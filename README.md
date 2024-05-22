@@ -109,28 +109,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ### Create Application Configuration:
 
-Define the ArgoCD application configuration in a YAML file (`argo-app.yaml`):
-
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: voting-app
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: 'https://github.com/yourusername/yourrepo.git'
-    path: '.'
-    targetRevision: HEAD
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-```
+Define the ArgoCD application configuration in a YAML file 
 
 ### Apply the ArgoCD Application:
 
